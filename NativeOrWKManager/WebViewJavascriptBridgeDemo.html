@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+            
+			 function setBackgroundColor() {
+
+            window.WebViewJavascriptBridge.callHandler('backgroundColor','#EBEBEB')
+
+            }
+        
+            function refresh() {
+            
+            window.WebViewJavascriptBridge.callHandler('refreshThePage')
+            
+                        }
+            function back() {
+            window.WebViewJavascriptBridge.callHandler('jumpToBack')
+            }
+            function homepage() {
+            window.WebViewJavascriptBridge.callHandler('jumpToHome')
+            }
+            function showP() {
+            window.WebViewJavascriptBridge.callHandler('showProgress',1)
+            }
+        
+            function jump() {
+            window.WebViewJavascriptBridge.callHandler('openWebPage','https://www.baidu.com')
+            }
+            function clear() {
+            window.WebViewJavascriptBridge.callHandler('clearAllUIWebViewData')
+            }
+            function topHeight() {
+            window.WebViewJavascriptBridge.callHandler('topSafeHeight','20')
+            }
+            function bottomHeight() {
+            window.WebViewJavascriptBridge.callHandler('bottomSafeHeight','20')
+            }
+            function isLightStatus() {
+                window.WebViewJavascriptBridge.callHandler('isLightStatusBar','1')
+            }
+            function isHiddenStatusBar() {
+                window.WebViewJavascriptBridge.callHandler('isHiddenStatusBar','1')
+            }
+            
+		</script>
+	</head>
+	<body onload="jump()">
+		<script type="text/javascript">
+			function setupWebViewJavascriptBridge(callback) {
+                if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+                if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+                window.WVJBCallbacks = [callback];
+                var WVJBIframe = document.createElement('iframe');
+                WVJBIframe.style.display = 'none';
+                WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+                document.documentElement.appendChild(WVJBIframe);
+                setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+            }
+            
+			setupWebViewJavascriptBridge(function(bridge) {
+				bridge.registerHandler('Get', function(data, responseCallback) {
+				alert(data);
+				})
+			})
+            self.jump
+            
+            
+		</script>
+		<input type="button" id="buttonID" value="背景颜色" onclick="setBackgroundColor()"/>
+        <input type="button" id="buttonID" value="刷新" onclick="refresh()"/>
+        <input type="button" id="buttonID" value="首页" onclick="homepage()"/>
+        <input type="button" id="buttonID" value="返回" onclick="back()"/>
+        <input type="button" id="buttonID" value="清除缓存" onclick="clear()"/>
+        <input type="button" id="buttonID" value="跳转" onclick="jump()"/>
+        <input type="button" id="buttonID" value="显示进度条" onclick="showP()"/>
+        <input type="button" id="buttonID" value="顶部安全距离" onclick="topHeight()"/>
+        <input type="button" id="buttonID" value="底部安全距离" onclick="bottomHeight()"/>
+        <input type="button" id="buttonID" value="是否明亮状态栏" onclick="isLightStatus()"/>
+        <input type="button" id="buttonID" value="是否隐藏状态栏" onclick="isHiddenStatusBar()"/>
+	</body>
+</html>
+<!-- #pragma mark - 顶部安全距离-->
+<!--    [self.wjb registerHandler:@"topSafeHeight" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        NSNumber * topHeight = data;-->
+<!--        CGFloat topHeightConst = topHeight.floatValue;-->
+<!--        weakSelf.topHeight = topHeightConst;-->
+<!--        [weakSelf updateWebViewFrame];-->
+<!--    }];-->
+<!--    #pragma mark - 底部安全距离-->
+<!--    [self.wjb registerHandler:@"bottomSafeHeight" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        NSNumber * bottomHeight = data;-->
+<!--        CGFloat bottomHeightConst = bottomHeight.floatValue;-->
+<!--        weakSelf.bottomHeight = bottomHeightConst;-->
+<!--        [weakSelf updateWebViewFrame];-->
+<!--        -->
+<!--    }];-->
+<!--#pragma mark - 首页-->
+<!--    [self.wjb registerHandler:@"jumpToHome" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        [weakSelf jumpToHome];-->
+<!--    }];-->
+<!--#pragma mark - 返回-->
+<!--    [self.wjb registerHandler:@"jumpToBack" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        [weakSelf jumpToBack];-->
+<!--    }];-->
+<!--#pragma mark - 刷新-->
+<!--    [self.wjb registerHandler:@"refreshThePage" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        [weakSelf refreshThePage];-->
+<!--    }];-->
+<!--#pragma mark - 清除-->
+<!--    [self.wjb registerHandler:@"clearAllUIWebViewData" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        [weakSelf clearAllUIWebViewData];-->
+<!--    }];-->
+<!--#pragma mark - 跳转-->
+<!--    [self.wjb registerHandler:@"openWebPage" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        [weakSelf openWebPageWithUrlStr:(NSString *)data];-->
+<!--    }];-->
+<!--#pragma mark - 显示进度条-->
+<!--    [self.wjb registerHandler:@"showProgress" handler:^(id data, WVJBResponseCallback responseCallback) {-->
+<!--        NSNumber * isSuspendBtnNum = data;-->
+<!--        weakSelf.isShowProgressView = [isSuspendBtnNum boolValue];-->
+<!--    }];-->

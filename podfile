@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+
+target 'NativeOrWKManager' do
+  
+pod 'YYModel'
+pod 'WebViewJavascriptBridge'
+pod 'SVProgressHUD'
+pod 'AFNetworking'
+pod 'JSONModel'
+pod 'AVOSCloud'
+end
