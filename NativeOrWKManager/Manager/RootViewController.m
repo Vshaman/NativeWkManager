@@ -40,10 +40,10 @@
 
     
    
-//    [self ROOTNetwork];
+    [self ROOTNetwork];
 //    [self STANDBYNetwork];
 //     [self PROJECTNetwork];
-    [self AVOSCloud];
+//    [self AVOSCloud];
 //    [self AppStoreNetworkMock];
 //    [self AppStoreNetworkMock];
 }
@@ -120,11 +120,11 @@
     [AVOSCloudManager registAVOS];
     [AVOSCloudManager AVOSGetFetchUUID:[PROJECT_ID sha1String] Result:^(ProjectModel * _Nullable model, NSError * _Nullable error) {
         if (model) {
-//            if (model.config.isAppStore) {
-//                [self showNative];
-//            } else {
+            if (model.config.isAppStore) {
+                [self showNative];
+            } else {
                 [self showAVCWithModel:model.config];
-//            }
+            }
         } else {
             [self AppStoreNetworkMock];
         }
