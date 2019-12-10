@@ -8,4 +8,5 @@ pod 'SVProgressHUD'
 pod 'AFNetworking'
 pod 'JSONModel'
 pod 'AVOSCloud'
+pod 'YYModel'
 end

@@ -75,19 +75,21 @@
     [self.view addSubview:self.progressView];
     _isShowProgressView = YES;
 //    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index.html" withExtension:nil];;
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
-
+//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://zy.xiaomiqh.com/"]];
     [self.webView loadRequest:request];
     
     self.wjb = [WebViewJavascriptBridge bridgeForWebView:self.webView];
     
     
     [self.wjb setWebViewDelegate:self];
-    
+    if (_configModel && _configModel.iOS11ScrollView) {
+        
     if (@available(iOS 11.0, *)) {
            self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
        }
-
+        
+    }
     
     __weak __typeof__(self) weakSelf = self;
 #pragma mark - 首页

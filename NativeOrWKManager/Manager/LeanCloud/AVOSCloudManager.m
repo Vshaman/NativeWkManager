@@ -22,7 +22,8 @@
 
 
 #import "AVOSCloudManager.h"
-
+#import <YYModel/YYModel.h>
+#import "testModel.h"
 
 @interface AVOSCloudManager()
 
@@ -56,6 +57,7 @@ static AVObject * _Nullable objectt;
             
             model = [ProjectModel initWithDictionary:[object dictionaryForObject]];
             model.config = [ConfigModel initWithString:object[@"config"]];
+            
             
         }
         if (!result) {return;}

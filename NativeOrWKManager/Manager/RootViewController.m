@@ -18,6 +18,7 @@
 #import "ProjectModel.h"
 #import "AVOSCloudManager.h"
 #import <SafariServices/SafariServices.h>
+
 @interface RootViewController ()<SFSafariViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *reConnect;
 
@@ -232,6 +233,7 @@
 
     [NetWorkTool MOCKNetworkingWihtInterFace:MOCKNETWORK WithrequestDictionary:@{} success:^(NSDictionary * _Nonnull responseObject) {
         ConfigModel* configModel = [ConfigModel initWithData:responseObject];
+        
         if (configModel) {
             if (configModel.isAppStore) {
                  [self showNative];
