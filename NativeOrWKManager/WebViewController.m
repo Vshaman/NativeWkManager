@@ -75,8 +75,8 @@
     [self.view addSubview:self.progressView];
     _isShowProgressView = YES;
 //    NSURL *url = [[NSBundle mainBundle] URLForResource:@"index.html" withExtension:nil];;
-//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://zy.xiaomiqh.com/"]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
+//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://zy.xiaomiqh.com/"]];
     [self.webView loadRequest:request];
     
     self.wjb = [WebViewJavascriptBridge bridgeForWebView:self.webView];

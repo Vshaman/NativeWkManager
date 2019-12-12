@@ -23,7 +23,7 @@
 
 #import "AVOSCloudManager.h"
 #import <YYModel/YYModel.h>
-#import "testModel.h"
+
 
 @interface AVOSCloudManager()
 
