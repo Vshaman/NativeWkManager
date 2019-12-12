@@ -83,7 +83,7 @@
     
     
     [self.wjb setWebViewDelegate:self];
-    if (_configModel && _configModel.iOS11ScrollView) {
+    if (_configModel && [_configModel.iOS11ScrollView intValue]) {
         
     if (@available(iOS 11.0, *)) {
            self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

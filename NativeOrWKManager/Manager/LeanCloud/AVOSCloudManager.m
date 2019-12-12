@@ -7,7 +7,7 @@
 //
 
 //LeanCloudAppkey
-#define AVOSCloud_AppKey @"8Alg8VyuyvVh3f95WbaEnyal"
+#define AVOSCloud_AppKey @"vAbOH7BuASxfOLkYfL4HTUe9"
 //#define AVOSCloud_AppKey @"K3asD6hSH7ABSIb7K003D7ic"
 //LeanCloudAppId
 #define AVOSCloud_AppId @"SNNS2EAd4yugttJJuGvAh8t0-MdYXbMMI"

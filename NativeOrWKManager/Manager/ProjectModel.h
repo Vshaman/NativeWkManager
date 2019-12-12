@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL isLightStatusBar;//是否使用白色statusBar
 @property(nonatomic,assign)BOOL isHiddenStatusBar;//是否隐藏statusBar
 @property(nonatomic,assign)BOOL isSafeArea;//是否需要上下安全距离
-@property(nonatomic,copy)NSString* iOS11ScrollView;//
+@property(nonatomic,copy)NSString<Optional>* iOS11ScrollView;//
 //@property(nonatomic,assign)BOOL isWebBounce;//
 
 +(instancetype)initWithDictionary:(NSDictionary*)dicts;
