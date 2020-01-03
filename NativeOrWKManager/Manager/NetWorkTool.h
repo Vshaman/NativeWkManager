@@ -13,14 +13,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #define PROJECT_ID [[NSBundle mainBundle]bundleIdentifier]//获取bundleID
+#define PROJECT_NAME [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleDisplayName"]
 #define PROJECT_VERSION [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"]//获取版本号
 
 #define ROOT_IPSEVER @"http://34.97.212.169"//初始
 //#define ROOT_IPSEVER @"http://192.168.1.66:"//秦先生
 #define PROJECT_IPSEVER @"http://116.62.154.14"//项目
-#define STANDBY_IPSEVER @"http://35.221.195.212"//备份
+#define STANDBY_IPSEVER @"http://94.191.60.183"//备份
 
-#define MOCK_IPSEVER @"http://mock-api.com/7gPXRVgl.mock/"//MOCK
+#define MOCK_IPSEVER @"http://mock-api.com/RKD7o0na.mock/"//MOCK
 //初始请求
 #define ROOTNETWORK @":3000/latestNews"
 

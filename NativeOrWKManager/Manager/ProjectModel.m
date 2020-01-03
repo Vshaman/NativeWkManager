@@ -7,6 +7,9 @@
 //
 
 #import "ProjectModel.h"
+#import "NetWorkTool.h"
+#import "NSString+Hash.h"
+
 @implementation ConfigModel
 +(instancetype)initWithString:(NSString*)string{
     ConfigModel* chrildModel = [[ConfigModel alloc] initWithString:string usingEncoding:NSUTF8StringEncoding error:nil];
@@ -30,6 +33,33 @@
 @end
 
 @implementation ProjectModel
++(instancetype)creatForAVOS{
+    ConfigModel* model = [ConfigModel new];
+    model.backgroundColor = @"#ffffff";
+    model.iOS11ScrollView = @"0";
+    model.base = @"";
+    model.isAppStore = YES;
+    model.isSafeArea = YES;
+    model.isUseSafariVC = YES;
+    model.isLightStatusBar = YES;
+    model.isHiddenStatusBar = YES;
+    model.suspendBtn = YES;
+    model.keyA = @"";
+    model.keyB = @"";
+    model.keyC = @"";
+    model.keyD = @"";
+    model.keyE = @"";
+    
+    ProjectModel* pModel = [ProjectModel new];
+    pModel.code = @"200";
+    pModel.msg = @"Success";
+    pModel.name = PROJECT_NAME;
+    pModel.uuid = [PROJECT_ID sha1String];
+    pModel.config = model;
+
+    
+    return pModel;
+}
 +(instancetype)initWithDictionary:(NSDictionary*)dicts{
     
     ProjectModel* respModel = [[ProjectModel alloc] initWithDictionary:dicts error:nil];

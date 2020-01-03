@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString<Optional>* name;//
 @property(nonatomic,strong)NSString<Optional>* uuid;//
 
++(instancetype)creatForAVOS;
 +(instancetype)initWithDictionary:(NSDictionary*)dicts;
 +(instancetype)initWithData:(id)data;
 @end

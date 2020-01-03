@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AVOSCloudManager : NSObject
 
 +(void)registAVOS;
++(void)creatAVOS;
 +(void)AVOSGetFetchResult:(void(^)(ProjectModel* _Nullable model,NSError * _Nullable error))result;
 +(void)AVOSGetFetchUUID:(NSString*)uuid Result:(void (^)(ProjectModel * _Nullable model, NSError * _Nullable error))result;
 

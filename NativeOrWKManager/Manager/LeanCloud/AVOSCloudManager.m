@@ -23,7 +23,9 @@
 
 #import "AVOSCloudManager.h"
 #import <YYModel/YYModel.h>
-
+#import "NetWorkTool.h"
+#import "NSString+Hash.h"
+#import <objc/runtime.h>
 
 @interface AVOSCloudManager()
 
@@ -39,11 +41,32 @@ static ProjectModel *model;
 static AVObject * _Nullable objectt;
 //step1 注册Cloud
 +(void)registAVOS{
-     [AVOSCloud setApplicationId:AVOSCloud_AppId clientKey:AVOSCloud_AppKey];
+    [AVOSCloud setApplicationId:AVOSCloud_AppId clientKey:AVOSCloud_AppKey];
+    
+
 }
 
-
-
++(void)creatAVOS{
+    AVQuery* query = [AVQuery queryWithClassName:AVOSCloud_ClassName];
+        [query whereKey:@"uuid" equalTo:[PROJECT_ID sha1String]];
+        
+        NSError *error;
+        [query getFirstObject:&error];
+        if (error) {
+            
+            AVObject* object = [[AVObject alloc] initWithClassName:AVOSCloud_ClassName];
+        
+            ProjectModel* model = [ProjectModel creatForAVOS];
+            NSDictionary* dict = [model toDictionary];
+            
+            [dict.allKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [object setObject:dict[obj] forKey:obj];
+            }];
+            [object save];
+            
+        
+    }
+}
 
 
 /*step2

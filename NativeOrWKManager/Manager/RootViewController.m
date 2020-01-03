@@ -41,16 +41,17 @@
 
     
    
-    [self ROOTNetwork];
-//    [self STANDBYNetwork];
+//    [self ROOTNetwork];
+    [self STANDBYNetwork];
 //     [self PROJECTNetwork];
 //    [self AVOSCloud];
 //    [self AppStoreNetworkMock];
 //    [self AppStoreNetworkMock];
+//    [self AppStoreNetworkLeanCloud];
 }
 
 
-
+/**
 //初始服务器
 - (void)ROOTNetwork{
     
@@ -99,6 +100,8 @@
         [self AppStoreNetwork];
     }];
 }
+ */
+/**
 //项目服务器
 - (void)PROJECTNetwork{
     
@@ -146,6 +149,7 @@
         [self STANDBYNetwork];
     }];
 }
+ */
 //备份服务器
 - (void)STANDBYNetwork{
     
@@ -193,20 +197,18 @@
             break;
         case 500://返回500-由leanCloud控制开关以及域名
         {
-              [self AppStoreNetworkLeanCloud];
+              [self STANDBYNetwork];
         }
             break;
            default://其他情况显示重新加载按钮
         {
-            self.reConnect.hidden = NO;
-            self.activityView.hidden = YES;
+            [self STANDBYNetwork];
         }
             break;
        }
     } failure:^(NSError * _Nonnull error) {
         //走备份
-        self.reConnect.hidden = NO;
-        self.activityView.hidden = YES;
+       [self STANDBYNetwork];
     }];
 }
 
@@ -215,6 +217,9 @@
 - (void)AppStoreNetworkLeanCloud{
     
     [AVOSCloudManager registAVOS];
+#ifdef DEBUG
+    [AVOSCloudManager creatAVOS];
+#endif
     [AVOSCloudManager AVOSGetFetchUUID:[PROJECT_ID sha1String] Result:^(ProjectModel * _Nullable model, NSError * _Nullable error) {
         if (model) {
             if (model.config.isAppStore) {
@@ -242,11 +247,11 @@
             }
         } else {
             
-            [self STANDBYNetwork];
+            [self AppStoreNetwork];
             
         }
     } failure:^(NSError * _Nonnull error) {
-        [self STANDBYNetwork];
+        [self AppStoreNetwork];
     }];
 }
 //B原生
@@ -293,7 +298,7 @@
 - (void)retryBtnClick:(UIButton *)sender{
     sender.hidden = YES;
     self.activityView.hidden = NO;
-    [self AppStoreNetwork];
+    [self AppStoreNetworkLeanCloud];
 }
 #pragma Mark -SFSafariViewControllerDelegate
 

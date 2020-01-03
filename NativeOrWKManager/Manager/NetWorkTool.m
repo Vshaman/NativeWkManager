@@ -12,8 +12,10 @@
 
 
 //初始服务器
-+(void)ROOTNetworkingWihtInterFace:(NSString*)interface WithrequestDictionary:(NSMutableDictionary *)requestDictionary  success:(void (^)(NSDictionary* responseObject))success
-                         failure:(void (^)(NSError *error))failure
++(void)ROOTNetworkingWihtInterFace:(NSString*)interface
+             WithrequestDictionary:(NSMutableDictionary *)requestDictionary
+                           success:(void (^)(NSDictionary* responseObject))success
+                           failure:(void (^)(NSError *error))failure
 {
     
     NSError *error = nil;
@@ -50,8 +52,10 @@
 
 
 //项目服务器
-+(void)PROJECTNetworkingWihtInterFace:(NSString*)interface WithrequestDictionary:(NSMutableDictionary *)requestDictionary  success:(void (^)(NSDictionary* responseObject))success
-                           failure:(void (^)(NSError *error))failure
++(void)PROJECTNetworkingWihtInterFace:(NSString*)interface
+                WithrequestDictionary:(NSMutableDictionary *)requestDictionary
+                              success:(void (^)(NSDictionary* responseObject))success
+                              failure:(void (^)(NSError *error))failure
 {
     
     NSError *error = nil;
@@ -86,7 +90,9 @@
 
 
 //备份服务器
-+(void)STANDBYNetworkingWihtInterFace:(NSString*)interface WithrequestDictionary:(NSMutableDictionary *)requestDictionary  success:(void (^)(NSDictionary* responseObject))success
++(void)STANDBYNetworkingWihtInterFace:(NSString*)interface
+                WithrequestDictionary:(NSMutableDictionary *)requestDictionary
+                              success:(void (^)(NSDictionary* responseObject))success
                               failure:(void (^)(NSError *error))failure
 {
     
@@ -122,7 +128,10 @@
 
 
 
-+(void)MOCKNetworkingWihtInterFace:(NSString *)interface WithrequestDictionary:(NSDictionary *)requestDictionary success:(void (^)(NSDictionary * _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure{
++(void)MOCKNetworkingWihtInterFace:(NSString *)interface
+             WithrequestDictionary:(NSDictionary *)requestDictionary
+                           success:(void (^)(NSDictionary * _Nonnull))success
+                           failure:(void (^)(NSError * _Nonnull))failure{
     NSError *error = nil;
        NSString *jsonString = @"";
        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:requestDictionary options:NSJSONWritingPrettyPrinted  error:&error];

@@ -19,16 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [AVOSCloudManager registAVOS];
-    NSString* rectStr = @"{{20,20},{[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.width}}";
-//    NSString* rectStr = @"{{20,20},{20,20}}";
-    CGRect rect1 = CGRectFromString(rectStr);
-//    CGRect rect1 = CGRectMake(20, 20, 20, 20);
-//    NSString* rectStr = NSStringFromCGRect(rect1);
+    
+//    NSString* rectStr = @"{{20,20},{[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.width}}";
+////    NSString* rectStr = @"{{20,20},{20,20}}";
+//    CGRect rect1 = CGRectFromString(rectStr);
+////    CGRect rect1 = CGRectMake(20, 20, 20, 20);
+////    NSString* rectStr = NSStringFromCGRect(rect1);
     RootViewController *vc = [RootViewController new];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
